@@ -182,16 +182,6 @@ const Layout = () => {
         </div>
       </footer>
 
-      {/* Mobile Sticky CTA Bar */}
-      <div className="mobile-cta-bar hidden-desktop">
-        <a href="tel:5550198" className="mobile-cta-btn secondary">
-          <Phone size={20} /> Call Now
-        </a>
-        <Link to="/contact" className="mobile-cta-btn primary">
-          <Calendar size={20} /> Get Quote
-        </Link>
-      </div>
-
       {/* Watermark */}
       <Watermark />
     </div>

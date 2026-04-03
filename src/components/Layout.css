@@ -222,7 +222,6 @@
 /* Main Content */
 .main-content {
   flex-grow: 1;
-  padding-bottom: 80px; /* space for mobile CTA bar */
 }
 
 /* Footer */
@@ -230,7 +229,6 @@
   background-color: var(--color-charcoal);
   color: var(--color-white);
   padding: var(--space-12) 0 var(--space-6) 0;
-  margin-bottom: 72px; /* space for mobile CTA bar on mobile */
 }
 
 .footer-grid {

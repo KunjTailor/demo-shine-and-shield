@@ -186,7 +186,7 @@
 }
 
 .service-content h3 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
   font-size: 1.25rem;
 }
 
@@ -294,7 +294,9 @@
 .quote {
   font-style: italic;
   margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
   color: var(--color-text-main);
+  line-height: 1.7;
 }
 
 /* Final CTA */
@@ -308,7 +310,7 @@
 .final-cta h2 {
   color: var(--color-white);
   font-size: 2.5rem;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .final-cta p {

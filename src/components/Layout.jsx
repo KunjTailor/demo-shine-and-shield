@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronRight, MapPin, Calendar, Clock, ArrowRight } from 'lucide-react';
+import Watermark from './Watermark';
 import './Layout.css';
 
 const Layout = () => {
@@ -190,6 +191,9 @@ const Layout = () => {
           <Calendar size={20} /> Get Quote
         </Link>
       </div>
+
+      {/* Watermark */}
+      <Watermark />
     </div>
   );
 };

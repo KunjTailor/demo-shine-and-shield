@@ -23,6 +23,48 @@ const Layout = () => {
     window.scrollTo(0, 0); // scroll to top on nav
   }, [location.pathname]);
 
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
+  // Scroll-reveal: fade/slide elements in as they enter the viewport.
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = Array.from(
+      document.querySelectorAll(
+        '.section-header, .step-card, .service-card, .testimonial-card, .split-content, .split-media, .service-row, .ba-showcase, .gallery-tile, .strip-content, .final-cta .container, .about-grid > *, .contact-card'
+      )
+    );
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('revealed'));
+      return;
+    }
+
+    targets.forEach((el, i) => {
+      el.classList.add('reveal');
+      // Subtle stagger for items that sit in the same row group
+      el.style.setProperty('--reveal-delay', `${(i % 3) * 0.08}s`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
